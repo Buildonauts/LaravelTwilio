@@ -13,7 +13,10 @@ class TwilioServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // publish config file
+        $this->publishes([
+            __DIR__.'/../config/twilio.php' => config_path('twilio.php'),
+        ], 'twilio');
     }
 
     /**
@@ -23,6 +26,13 @@ class TwilioServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(TwilioService::class, function ($app) {
+            return new TwilioService(config('twilio'));
+        });
+        
+    }
+    
+    public function provides() {
+        return ['mongo'];
     }
 }

@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "twilio/sdk": "^5.*"
+        "twilio/sdk": "5.*"
     },
     "autoload": {
         "psr-4": {
