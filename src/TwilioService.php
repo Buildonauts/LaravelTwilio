@@ -12,11 +12,21 @@ class TwilioService {
     protected $twiml;
     public $from;
     
-    public function __construct($sid = NULL, $token= NULL, $from = NULL) {
+    public function __construct() {
     
         $sid = config('twilio.sid',$sid);
         $token = config('twilio.token',$token);
         $this->from = config('twilio.from',$from);
+        try {
+            $this->client = new Client($sid, $token);
+        } catch (\Exception $e) {
+            Log::error($e);
+        }
+    }
+    
+    public function config($sid,$token,$from)
+    {
+        $this->from = $from;
         try {
             $this->client = new Client($sid, $token);
         } catch (\Exception $e) {

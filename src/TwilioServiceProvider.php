@@ -27,8 +27,10 @@ class TwilioServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(TwilioService::class, function ($app) {
-            return new TwilioService(config('twilio'));
+            return new TwilioService();
         });
+    
+        $this->app->alias(TwilioService::class, 'twilio');
         
     }
     
