@@ -27,7 +27,7 @@ class TwilioEventListener
     public function subscribe($events)
     {
         $events->listen(
-            'App\Events\TwilioEvent',
+            'Buildonauts\LaravelTwilio\TwilioEvent',
             'Buildonauts\LaravelTwilio\TwilioEventListener@TwilioEvent'
         );
 
