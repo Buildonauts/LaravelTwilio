@@ -6,10 +6,10 @@ use Twilio\Rest\Client;
 use Twilio\Twiml;
 use Log;
 
-class Twilio {
+class TwilioService {
     
-    private $twilio;
-    private $twiml;
+    protected $twilio;
+    protected $twiml;
     public $from;
     
     public function __construct($sid = NULL, $token= NULL, $from = NULL) {
