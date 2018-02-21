@@ -14,9 +14,9 @@ class TwilioService {
     
     public function __construct() {
     
-        $sid = config('twilio.sid',$sid);
-        $token = config('twilio.token',$token);
-        $this->from = config('twilio.from',$from);
+        $sid = config('twilio.sid');
+        $token = config('twilio.token');
+        $this->from = config('twilio.from');
         try {
             $this->client = new Client($sid, $token);
         } catch (\Exception $e) {
