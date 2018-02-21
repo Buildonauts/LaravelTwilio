@@ -21,6 +21,7 @@
         "laravel": {
             "providers": [
                 "Buildonauts\\LaravelTwilio\\TwilioServiceProvider"
+                Buildonauts\LaravelTwilio\TwilioServiceProvider
             ],
             "aliases": {
                 "Twilio": "Buildonauts\\LaravelTwilio\\TwilioFacade"
