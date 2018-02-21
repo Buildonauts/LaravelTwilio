@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "buildonauts\\LaravelTwilio\\": "src/"
+            "Buildonauts\\LaravelTwilio\\": "src/"
         }
     },
     "extra": {
