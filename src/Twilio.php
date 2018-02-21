@@ -6,7 +6,7 @@ use Twilio\Rest\Client;
 use Twilio\Twiml;
 use Log;
 
-class TwilioService {
+class Twilio {
     
     private $twilio;
     private $twiml;
