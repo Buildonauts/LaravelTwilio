@@ -33,6 +33,6 @@ class TwilioServiceProvider extends ServiceProvider
     }
     
     public function provides() {
-        return ['mongo'];
+        return ['twilio'];
     }
 }
