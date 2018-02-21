@@ -6,6 +6,11 @@ use Illuminate\Support\ServiceProvider;
 
 class TwilioServiceProvider extends ServiceProvider
 {
+    
+    protected $subscribe = [
+        'App\Listeners\TwilioEventListener',
+    ];
+    
     /**
      * Bootstrap services.
      *
