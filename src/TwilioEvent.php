@@ -2,17 +2,8 @@
 
 namespace Buildonauts\LaravelTwilio;
 
-use Illuminate\Broadcasting\Channel;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Foundation\Events\Dispatchable;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-
 class TwilioEvent
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $action;
     public $to;
@@ -32,6 +23,14 @@ class TwilioEvent
     
     }
 
+    public function handle( $event) {
+        $arr = (array)$event;
+        unset($arr['socket']);
+        $action = $arr['action'];
+        unset($arr['action']);
+        AppLog::addEntry($action,NULL, json_encode($arr));
+    }
+    
     /**
      * Get the channels the event should broadcast on.
      *

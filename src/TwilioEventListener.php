@@ -7,36 +7,21 @@ use Log;
 
 class TwilioEventListener
 {
+    
+    public function __construct()
+    {
+        //
+    }
+    
     /**
      * Handle Twilio events.
      */
-    public function TwilioEvent($event) {
+    public function handle(TwilioEvent $event) {
         $arr = (array)$event;
         unset($arr['socket']);
         $action = $arr['action'];
         unset($arr['action']);
         AppLog::addEntry($action,NULL, json_encode($arr));
-    }
-    
-    
-    /**
-     * Register the listeners for the subscriber.
-     *
-     * @param  Illuminate\Events\Dispatcher  $events
-     */
-    public function subscribe($events)
-    {
-        $events->listen(
-            'Buildonauts\LaravelTwilio\TwilioEvent',
-            'Buildonauts\LaravelTwilio\TwilioEventListener@TwilioEvent'
-        );
-
-//        $events->listen(
-//            'Illuminate\Auth\Events\Logout',
-//            'App\Listeners\UserEventSubscriber@onUserLogout'
-//        );
-        //dd($events);
-        
     }
     
 }
