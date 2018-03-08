@@ -3,6 +3,7 @@
 namespace Buildonauts\LaravelTwilio;
 
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -12,6 +13,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class TwilioEvent
 {
+
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $action;
@@ -32,6 +34,8 @@ class TwilioEvent
     
     }
 
+
+    
     /**
      * Get the channels the event should broadcast on.
      *
